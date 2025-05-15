@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Sample Android"
 include(":app")
+include(":ffmpeg-kit-min-gpl")
