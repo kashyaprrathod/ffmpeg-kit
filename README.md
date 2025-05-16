@@ -1,4 +1,4 @@
-# ffmpeg-kit-full-gpl
+# FFMPEG For Android
 
 maven { url 'https://jitpack.io' }
 
