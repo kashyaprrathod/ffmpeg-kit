@@ -1,5 +1,7 @@
 # FFMPEG For Android
 
+Generated libs using this repo : https://github.com/arthenica/ffmpeg-kit
+
 maven { url 'https://jitpack.io' }
 
 ## For Full-GPL
