@@ -27,10 +27,10 @@
 #include "libavutil/ffversion.h"
 
 /** Library version string */
-#define FFMPEG_KIT_VERSION "4.5.1"
+#define FFMPEG_KIT_VERSION "6.0"
 
 /** Defines tag used for Android logging. */
-#define LIB_NAME "ffmpeg-kit-full-gpl-kit"
+#define LIB_NAME "ffmpeg-kit"
 
 /** Verbose Android logging macro. */
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LIB_NAME, __VA_ARGS__)

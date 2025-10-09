@@ -36,10 +36,10 @@ public class NativeLoader {
 
     static final String[] FFMPEG_LIBRARIES = {"avutil", "swscale", "swresample", "avcodec", "avformat", "avfilter", "avdevice"};
 
-    static final String[] LIBRARIES_LINKED_WITH_CXX = {"openh264", "rubberband", "snappy", "srt", "tesseract", "x265", "zimg"};
+    static final String[] LIBRARIES_LINKED_WITH_CXX = {"chromaprint", "openh264", "rubberband", "snappy", "srt", "tesseract", "x265", "zimg", "libilbc"};
 
     static boolean isTestModeDisabled() {
-        return (System.getProperty("enable.ffmpeg-kit-full-gpl.kit.test.mode") == null);
+        return (System.getProperty("enable.ffmpeg.kit.test.mode") == null);
     }
 
     private static void loadLibrary(final String libraryName) {
@@ -85,7 +85,7 @@ public class NativeLoader {
     }
 
     static String loadVersion() {
-        final String version = "4.5.1";
+        final String version = "6.0";
 
         if (isTestModeDisabled()) {
             return FFmpegKitConfig.getVersion();
@@ -152,7 +152,7 @@ public class NativeLoader {
                     }
                     nativeFFmpegLoaded = true;
                 } catch (final Error e) {
-                    android.util.Log.i(FFmpegKitConfig.TAG, String.format("NEON supported armeabi-v7a ffmpeg-kit-full-gpl library not found. Loading default armeabi-v7a library.%s", Exceptions.getStackTraceString(e)));
+                    android.util.Log.i(FFmpegKitConfig.TAG, String.format("NEON supported armeabi-v7a ffmpeg library not found. Loading default armeabi-v7a library.%s", Exceptions.getStackTraceString(e)));
                     nativeFFmpegTriedAndFailed = true;
                 }
             }
