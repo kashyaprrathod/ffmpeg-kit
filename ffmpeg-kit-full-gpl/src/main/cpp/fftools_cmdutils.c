@@ -2054,7 +2054,7 @@ int show_help(void *optctx, const char *opt, const char *arg)
         *par++ = 0;
 
     if (!*topic) {
-        if (program_name && !strcmp(program_name, "ffmpeg")) {
+        if (program_name && !strcmp(program_name, "ffmpeg-kit-full-gpl")) {
             show_help_default_ffmpeg(topic, par);
         } else {
             show_help_default_ffprobe(topic, par);
@@ -2076,7 +2076,7 @@ int show_help(void *optctx, const char *opt, const char *arg)
     } else if (!strcmp(topic, "bsf")) {
         show_help_bsf(par);
     } else {
-        if (program_name && !strcmp(program_name, "ffmpeg")) {
+        if (program_name && !strcmp(program_name, "ffmpeg-kit-full-gpl")) {
             show_help_default_ffmpeg(topic, par);
         } else {
             show_help_default_ffprobe(topic, par);
@@ -2133,12 +2133,12 @@ FILE *get_preset_file(char *filename, size_t filename_size,
             if (!base[i])
                 continue;
             snprintf(filename, filename_size, "%s%s/%s.ffpreset", base[i],
-                     i != 1 ? "" : "/.ffmpeg", preset_name);
+                     i != 1 ? "" : "/.ffmpeg-kit-full-gpl", preset_name);
             f = fopen(filename, "r");
             if (!f && codec_name) {
                 snprintf(filename, filename_size,
                          "%s%s/%s-%s.ffpreset",
-                         base[i], i != 1 ? "" : "/.ffmpeg", codec_name,
+                         base[i], i != 1 ? "" : "/.ffmpeg-kit-full-gpl", codec_name,
                          preset_name);
                 f = fopen(filename, "r");
             }
@@ -2267,7 +2267,7 @@ double get_rotation(AVStream *st)
         av_log(NULL, AV_LOG_WARNING, "Odd rotation angle.\n"
                "If you want to help, upload a sample "
                "of this file to https://streams.videolan.org/upload/ "
-               "and contact the ffmpeg-devel mailing list. (ffmpeg-devel@ffmpeg.org)");
+               "and contact the ffmpeg-kit-full-gpl-devel mailing list. (ffmpeg-kit-full-gpl-devel@ffmpeg-kit-full-gpl.org)");
 
     return theta;
 }

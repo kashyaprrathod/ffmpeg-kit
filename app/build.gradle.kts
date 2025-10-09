@@ -28,6 +28,36 @@ android {
             )
         }
     }
+
+    packaging {
+        jniLibs {
+            useLegacyPackaging = false
+            pickFirsts.addAll(
+                listOf(
+                    "lib/arm64-v8a/libavcodec.so",
+                    "lib/arm64-v8a/libavformat.so",
+                    "lib/arm64-v8a/*",
+                    "lib/*/*"
+                )
+            )
+        }
+        resources {
+            pickFirsts.addAll(
+                listOf(
+                    "lib/arm64-v8a/*",
+                    "lib/*/*"
+                )
+            )
+            excludes.addAll(
+                listOf(
+                    "META-INF/DEPENDENCIES",
+                    "META-INF/INDEX.LIST",
+                    "META-INF/io.netty.versions.properties"
+                )
+            )
+        }
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_21
         targetCompatibility = JavaVersion.VERSION_21

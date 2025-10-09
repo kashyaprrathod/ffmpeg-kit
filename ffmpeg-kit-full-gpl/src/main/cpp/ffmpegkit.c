@@ -788,7 +788,7 @@ JNIEXPORT jint JNICALL Java_com_arthenica_ffmpegkit_FFmpegKitConfig_nativeFFmpeg
 
     /* PRESERVE USAGE FORMAT
      *
-     * ffmpeg <arguments>
+     * ffmpeg-kit-full-gpl <arguments>
      */
     argv = (char **)av_malloc(sizeof(char*) * (argumentCount));
     argv[0] = (char *)av_malloc(sizeof(char) * (strlen(LIB_NAME) + 1));
@@ -846,7 +846,7 @@ JNIEXPORT void JNICALL Java_com_arthenica_ffmpegkit_FFmpegKitConfig_nativeFFmpeg
  *
  * @param env pointer to native method interface
  * @param object reference to the class on which this method is invoked
- * @param ffmpegPipePath full path of ffmpeg pipe
+ * @param ffmpegPipePath full path of ffmpeg-kit-full-gpl pipe
  * @return zero on successful creation, non-zero on error
  */
 JNIEXPORT int JNICALL Java_com_arthenica_ffmpegkit_FFmpegKitConfig_registerNewNativeFFmpegPipe(JNIEnv *env, jclass object, jstring ffmpegPipePath) {

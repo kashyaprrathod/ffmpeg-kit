@@ -438,7 +438,7 @@ typedef struct InputFile {
     int64_t start_time;   /* user-specified start time in AV_TIME_BASE or AV_NOPTS_VALUE */
     int seek_timestamp;
     int64_t recording_time;
-    int nb_streams;       /* number of stream that ffmpeg is aware of; may be different
+    int nb_streams;       /* number of stream that ffmpeg-kit-full-gpl is aware of; may be different
                              from ctx.nb_streams if new streams appear during av_read_frame() */
     int nb_streams_warn;  /* number of streams that the user was warned of */
     int rate_emu;

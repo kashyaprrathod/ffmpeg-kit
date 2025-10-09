@@ -96,15 +96,15 @@ public class FFmpegKitConfig {
     /**
      * The tag used for logging.
      */
-    static final String TAG = "ffmpeg-kit";
+    static final String TAG = "ffmpeg-kit-full-gpl-kit";
 
     /**
-     * Prefix of named pipes created by ffmpeg kit.
+     * Prefix of named pipes created by ffmpeg-kit-full-gpl kit.
      */
     static final String FFMPEG_KIT_NAMED_PIPE_PREFIX = "fk_pipe_";
 
     /**
-     * Generates ids for named ffmpeg kit pipes and saf protocol urls.
+     * Generates ids for named ffmpeg-kit-full-gpl kit pipes and saf protocol urls.
      */
     private static final AtomicInteger uniqueIdGenerator;
 
@@ -133,7 +133,7 @@ public class FFmpegKitConfig {
 
         Exceptions.registerRootPackage("com.arthenica");
 
-        android.util.Log.i(FFmpegKitConfig.TAG, "Loading ffmpeg-kit.");
+        android.util.Log.i(FFmpegKitConfig.TAG, "Loading ffmpeg-kit-full-gpl-kit.");
 
         final boolean nativeFFmpegTriedAndFailed = NativeLoader.loadFFmpeg();
 
@@ -144,7 +144,7 @@ public class FFmpegKitConfig {
 
         NativeLoader.loadFFmpegKit(nativeFFmpegTriedAndFailed);
 
-        android.util.Log.i(FFmpegKitConfig.TAG, String.format("Loaded ffmpeg-kit-%s-%s-%s-%s.", NativeLoader.loadPackageName(), NativeLoader.loadAbi(), NativeLoader.loadVersion(), NativeLoader.loadBuildDate()));
+        android.util.Log.i(FFmpegKitConfig.TAG, String.format("Loaded ffmpeg-kit-full-gpl-kit-%s-%s-%s-%s.", NativeLoader.loadPackageName(), NativeLoader.loadAbi(), NativeLoader.loadVersion(), NativeLoader.loadBuildDate()));
 
         uniqueIdGenerator = new AtomicInteger(1);
 
@@ -1451,7 +1451,7 @@ public class FFmpegKitConfig {
      *
      * <p>Please note that creator is responsible of closing created pipes.
      *
-     * @param ffmpegPipePath full path of ffmpeg pipe
+     * @param ffmpegPipePath full path of ffmpeg-kit-full-gpl pipe
      * @return zero on successful creation, non-zero on error
      */
     private native static int registerNewNativeFFmpegPipe(final String ffmpegPipePath);

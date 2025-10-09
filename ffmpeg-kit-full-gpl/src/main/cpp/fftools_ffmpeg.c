@@ -591,7 +591,7 @@ static int read_key(void)
     if (is_pipe) {
         /* When running under a GUI, you will end here. */
         if (!PeekNamedPipe(input_handle, NULL, 0, NULL, &nchars, NULL)) {
-            // input pipe may have been closed by the program that ran ffmpeg
+            // input pipe may have been closed by the program that ran ffmpeg-kit-full-gpl
             return -1;
         }
         //Read it
@@ -2593,7 +2593,7 @@ static int decode_video(InputStream *ist, AVPacket *pkt, int *got_output, int64_
     if (ist->dts != AV_NOPTS_VALUE)
         dts = av_rescale_q(ist->dts, AV_TIME_BASE_Q, ist->st->time_base);
     if (pkt) {
-        pkt->dts = dts; // ffmpeg.c probably shouldn't do this
+        pkt->dts = dts; // ffmpeg-kit-full-gpl.c probably shouldn't do this
     }
 
     // The old code used to set dts on the drain packet, which does not work
@@ -2622,7 +2622,7 @@ static int decode_video(InputStream *ist, AVPacket *pkt, int *got_output, int64_
                    "video_delay is larger in decoder than demuxer %d > %d.\n"
                    "If you want to help, upload a sample "
                    "of this file to https://streams.videolan.org/upload/ "
-                   "and contact the ffmpeg-devel mailing list. (ffmpeg-devel@ffmpeg.org)\n",
+                   "and contact the ffmpeg-kit-full-gpl-devel mailing list. (ffmpeg-kit-full-gpl-devel@ffmpeg-kit-full-gpl.org)\n",
                    ist->dec_ctx->has_b_frames,
                    ist->st->codecpar->video_delay);
     }
@@ -2920,7 +2920,7 @@ static int process_input_packet(InputStream *ist, const AVPacket *pkt, int no_eo
             break;
 
         // During draining, we might get multiple output frames in this loop.
-        // ffmpeg.c does not drain the filter chain on configuration changes,
+        // ffmpeg-kit-full-gpl.c does not drain the filter chain on configuration changes,
         // which means if we send multiple frames at once to the filters, and
         // one of those frames changes configuration, the buffered frames will
         // be lost. This can upset certain FATE tests.
@@ -4799,7 +4799,7 @@ static int process_input(int file_index)
         ifile->last_ts = av_rescale_q(pkt->dts, ist->st->time_base, AV_TIME_BASE_Q);
 
     if (debug_ts) {
-        av_log(NULL, AV_LOG_INFO, "demuxer+ffmpeg -> ist_index:%d type:%s pkt_pts:%s pkt_pts_time:%s pkt_dts:%s pkt_dts_time:%s off:%s off_time:%s\n",
+        av_log(NULL, AV_LOG_INFO, "demuxer+ffmpeg-kit-full-gpl -> ist_index:%d type:%s pkt_pts:%s pkt_pts_time:%s pkt_dts:%s pkt_dts_time:%s off:%s off_time:%s\n",
                ifile->ist_index + pkt->stream_index, av_get_media_type_string(ist->dec_ctx->codec_type),
                av_ts2str(pkt->pts), av_ts2timestr(pkt->pts, &ist->st->time_base),
                av_ts2str(pkt->dts), av_ts2timestr(pkt->dts, &ist->st->time_base),
@@ -4905,7 +4905,7 @@ static int transcode_step(void)
     if (ost->filter && ost->filter->graph->graph) {
         /*
          * Similar case to the early audio initialization in reap_filters.
-         * Audio is special in ffmpeg.c currently as we depend on lavfi's
+         * Audio is special in ffmpeg-kit-full-gpl.c currently as we depend on lavfi's
          * audio frame buffering/creation to get the output audio frame size
          * in samples correct. The audio frame size for the filter chain is
          * configured during the output stream initialization.
@@ -5211,7 +5211,7 @@ __thread OptionDef *ffmpeg_options = NULL;
 
 int ffmpeg_execute(int argc, char **argv)
 {
-    char _program_name[] = "ffmpeg";
+    char _program_name[] = "ffmpeg-kit-full-gpl";
     program_name = (char*)&_program_name;
     program_birth_year = 2000;
 
@@ -5417,7 +5417,7 @@ int ffmpeg_execute(int argc, char **argv)
         { "stats",          OPT_BOOL,                                    { &print_stats },
             "print progress report during encoding", },
         { "stats_period",    HAS_ARG | OPT_EXPERT,                       { .func_arg = opt_stats_period },
-            "set the period at which ffmpeg updates stats and -progress output", "time" },
+            "set the period at which ffmpeg-kit-full-gpl updates stats and -progress output", "time" },
         { "attach",         HAS_ARG | OPT_PERFILE | OPT_EXPERT |
                             OPT_OUTPUT,                                  { .func_arg = opt_attach },
             "add an attachment to the output file", "filename" },
@@ -5429,7 +5429,7 @@ int ffmpeg_execute(int argc, char **argv)
         { "debug_ts",       OPT_BOOL | OPT_EXPERT,                       { &debug_ts },
             "print timestamp debugging info" },
         { "max_error_rate",  HAS_ARG | OPT_FLOAT,                        { &max_error_rate },
-            "ratio of errors (0.0: no errors, 1.0: 100% errors) above which ffmpeg returns an error instead of success.", "maximum error rate" },
+            "ratio of errors (0.0: no errors, 1.0: 100% errors) above which ffmpeg-kit-full-gpl returns an error instead of success.", "maximum error rate" },
         { "discard",        OPT_STRING | HAS_ARG | OPT_SPEC |
                             OPT_INPUT,                                   { .off = OFFSET(discard) },
             "discard", "" },

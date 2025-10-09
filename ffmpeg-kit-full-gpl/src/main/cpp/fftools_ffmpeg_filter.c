@@ -1,5 +1,5 @@
 /*
- * ffmpeg filter configuration
+ * ffmpeg-kit-full-gpl filter configuration
  *
  * This file is part of FFmpeg.
  *
@@ -1087,7 +1087,7 @@ int configure_filtergraph(FilterGraph *fg)
     for (i = 0; i < fg->nb_outputs; i++) {
         OutputStream *ost = fg->outputs[i]->ost;
         if (!ost->enc) {
-            /* identical to the same check in ffmpeg.c, needed because
+            /* identical to the same check in ffmpeg-kit-full-gpl.c, needed because
                complex filter graphs are initialized earlier */
             av_log(NULL, AV_LOG_ERROR, "Encoder (codec %s) not found for output stream #%d:%d\n",
                      avcodec_get_name(ost->st->codecpar->codec_id), ost->file_index, ost->index);

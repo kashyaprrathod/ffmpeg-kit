@@ -39,7 +39,7 @@ public class NativeLoader {
     static final String[] LIBRARIES_LINKED_WITH_CXX = {"openh264", "rubberband", "snappy", "srt", "tesseract", "x265", "zimg"};
 
     static boolean isTestModeDisabled() {
-        return (System.getProperty("enable.ffmpeg.kit.test.mode") == null);
+        return (System.getProperty("enable.ffmpeg-kit-full-gpl.kit.test.mode") == null);
     }
 
     private static void loadLibrary(final String libraryName) {
@@ -152,7 +152,7 @@ public class NativeLoader {
                     }
                     nativeFFmpegLoaded = true;
                 } catch (final Error e) {
-                    android.util.Log.i(FFmpegKitConfig.TAG, String.format("NEON supported armeabi-v7a ffmpeg library not found. Loading default armeabi-v7a library.%s", Exceptions.getStackTraceString(e)));
+                    android.util.Log.i(FFmpegKitConfig.TAG, String.format("NEON supported armeabi-v7a ffmpeg-kit-full-gpl library not found. Loading default armeabi-v7a library.%s", Exceptions.getStackTraceString(e)));
                     nativeFFmpegTriedAndFailed = true;
                 }
             }

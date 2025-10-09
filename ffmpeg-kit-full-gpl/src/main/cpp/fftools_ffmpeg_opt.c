@@ -1,5 +1,5 @@
 /*
- * ffmpeg option parsing
+ * ffmpeg-kit-full-gpl option parsing
  *
  * This file is part of FFmpeg.
  *
@@ -313,7 +313,7 @@ int opt_stats_period(void *optctx, const char *opt, const char *arg)
     }
 
     stats_period = user_stats_period;
-    av_log(NULL, AV_LOG_INFO, "ffmpeg stats and -progress period set to %s.\n", arg);
+    av_log(NULL, AV_LOG_INFO, "ffmpeg-kit-full-gpl stats and -progress period set to %s.\n", arg);
 
     return 0;
 }

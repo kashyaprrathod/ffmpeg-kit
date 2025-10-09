@@ -1690,8 +1690,8 @@ static void xml_print_section_header(WriterContext *wctx)
 
     if (wctx->level == 0) {
         const char *qual = " xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" "
-            "xmlns:ffprobe=\"http://www.ffmpeg.org/schema/ffprobe\" "
-            "xsi:schemaLocation=\"http://www.ffmpeg.org/schema/ffprobe ffprobe.xsd\"";
+            "xmlns:ffprobe=\"http://www.ffmpeg-kit-full-gpl.org/schema/ffprobe\" "
+            "xsi:schemaLocation=\"http://www.ffmpeg-kit-full-gpl.org/schema/ffprobe ffprobe.xsd\"";
 
         av_log(NULL, AV_LOG_STDERR, "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
         av_log(NULL, AV_LOG_STDERR, "<%sffprobe%s>\n",

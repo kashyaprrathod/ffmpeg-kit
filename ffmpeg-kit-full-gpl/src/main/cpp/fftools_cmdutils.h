@@ -56,7 +56,7 @@
 #endif
 
 /**
- * Defines logs printed to stderr by ffmpeg. They are not filtered and always redirected.
+ * Defines logs printed to stderr by ffmpeg-kit-full-gpl. They are not filtered and always redirected.
  */
 #define AV_LOG_STDERR    -16
 
@@ -202,7 +202,7 @@ typedef struct OptionDef {
 #define OPT_INT64  0x0400
 #define OPT_EXIT   0x0800
 #define OPT_DATA   0x1000
-#define OPT_PERFILE  0x2000     /* the option is per-file (currently ffmpeg-only).
+#define OPT_PERFILE  0x2000     /* the option is per-file (currently ffmpeg-kit-full-gpl-only).
                                    implied by OPT_OFFSET or OPT_SPEC */
 #define OPT_OFFSET 0x4000       /* option is specified as an offset in a passed optctx */
 #define OPT_SPEC   0x8000       /* option is to be stored in an array of SpecifierOpt.
@@ -290,7 +290,7 @@ typedef struct OptionGroupDef {
     const char *name;
     /**
      * Option to be used as group separator. Can be NULL for groups which
-     * are terminated by a non-option argument (e.g. ffmpeg output files)
+     * are terminated by a non-option argument (e.g. ffmpeg-kit-full-gpl output files)
      */
     const char *sep;
     /**
@@ -582,7 +582,7 @@ int read_yesno(void);
  *
  * If is_path is non-zero, look for the file in the path preset_name.
  * Otherwise search for a file named arg.ffpreset in the directories
- * $FFMPEG_DATADIR (if set), $HOME/.ffmpeg, and in the datadir defined
+ * $FFMPEG_DATADIR (if set), $HOME/.ffmpeg-kit-full-gpl, and in the datadir defined
  * at configuration time or in a "ffpresets" folder along the executable
  * on win32, in that order. If no such file is found and
  * codec_name is defined, then search for a file named
